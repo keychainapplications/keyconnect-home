@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Account — KeyConnect</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #1A73E8;
+      --brand-dark: #1557B0;
+      --danger: #D93025;
+      --danger-light: #FEF0EF;
+      --danger-border: #F5C6C3;
+      --bg: #F8F9FA;
+      --surface: #FFFFFF;
+      --text-primary: #1F2937;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --border: #E5E7EB;
+      --border-focus: #1A73E8;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--brand);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-mark svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .logo-text {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 48px 24px 80px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .page-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .warning-box {
+      background: var(--danger-light);
+      border: 1px solid var(--danger-border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+
+    .warning-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 1px;
+    }
+
+    .warning-box p {
+      font-size: 13.5px;
+      color: #7F1D1D;
+      line-height: 1.55;
+    }
+
+    .warning-box strong {
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-body {
+      padding: 28px;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    label span.required {
+      color: var(--danger);
+      margin-left: 2px;
+    }
+
+    label span.optional {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-left: 4px;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text-primary);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="email"]:focus,
+    input[type="text"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(26,115,232,0.12);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--text-secondary);
+      pointer-events: none;
+    }
+
+    select {
+      cursor: pointer;
+      padding-right: 36px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 96px;
+      line-height: 1.5;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .confirm-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .confirm-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+      accent-color: var(--danger);
+    }
+
+    .confirm-row label {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      cursor: pointer;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    .confirm-row label strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .card-footer {
+      padding: 18px 28px;
+      background: #FAFAFA;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      background: #B91C1C;
+    }
+
+    .btn-danger:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .what-gets-deleted {
+      margin-top: 32px;
+    }
+
+    .what-gets-deleted h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .data-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .data-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+
+    .data-list li svg {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      stroke: var(--danger);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 48px 28px;
+    }
+
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      background: #ECFDF5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .success-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: #059669;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .success-state h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .success-state p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 24px 16px 60px; }
+      .card-body { padding: 20px; }
+      .card-footer { flex-direction: column-reverse; }
+      .btn { width: 100%; justify-content: center; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">
+      <svg viewBox="0 0 18 18">
+        <circle cx="9" cy="6" r="3"/>
+        <path d="M3 15c0-3.314 2.686-6 6-6s6 2.686 6 6"/>
+      </svg>
+    </div>
+    <span class="logo-text">KeyConnect</span>
+  </header>
+
+  <main>
+    <div class="container">
+      <p class="page-label">Account</p>
+      <h1>Delete your account</h1>
+      <p class="subtitle">Submit this form to request permanent deletion of your KeyConnect account and all associated data. Requests are processed within 30 days.</p>
+
+      <div class="warning-box">
+        <svg class="warning-icon" viewBox="0 0 20 20" fill="none" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 2L2 17h16L10 2z"/>
+          <line x1="10" y1="8" x2="10" y2="12"/>
+          <circle cx="10" cy="15" r="0.5" fill="#DC2626"/>
+        </svg>
+        <p><strong>This action is permanent.</strong> Once your account is deleted, your profile, scheduled events, connections, and all data cannot be recovered.</p>
+      </div>
+
+      <div class="card" id="form-card">
+        <div class="card-body">
+
+          <div class="field">
+            <label for="email">Email address on your account <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            <p class="hint">Must match the email you used to sign up.</p>
+          </div>
+
+          <div class="field">
+            <label for="fullname">Full name <span class="optional">(optional)</span></label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your name" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="reason">Reason for leaving <span class="optional">(optional)</span></label>
+            <div class="select-wrapper">
+              <select id="reason" name="reason">
+                <option value="" disabled selected>Select a reason</option>
+                <option value="not-using">I no longer use the app</option>
+                <option value="privacy">Privacy concerns</option>
+                <option value="switching">Switching to another service</option>
+                <option value="too-many-emails">Too many notifications</option>
+                <option value="technical">Technical issues</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Additional details <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="Anything else you'd like us to know…"></textarea>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="confirm-row">
+            <input type="checkbox" id="confirm" name="confirm">
+            <label for="confirm">I understand that <strong>deleting my account is permanent</strong> and that my data, including profile, connections, and scheduled events, cannot be recovered after deletion.</label>
+          </div>
+
+        </div>
+
+        <div class="card-footer">
+          <a href="#" class="btn btn-ghost">Cancel</a>
+          <button class="btn btn-danger" id="submit-btn" disabled onclick="handleSubmit()">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <polyline points="3,7 7,11 11,3"/>
+            </svg>
+            Submit deletion request
+          </button>
+        </div>
+
+        <div class="success-state" id="success-state">
+          <div class="success-icon">
+            <svg viewBox="0 0 26 26"><polyline points="5,13 10,18 21,7"/></svg>
+          </div>
+          <h2>Request received</h2>
+          <p>We've received your deletion request. Your account and all associated data will be permanently deleted within <strong>30 days</strong>. You'll receive a confirmation at the email address provided.</p>
+        </div>
+      </div>
+
+      <div class="what-gets-deleted">
+        <h2>What gets deleted</h2>
+        <ul class="data-list">
+          <li>
+            <svg viewBox="0 0 16 16"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+            Your profile, display name, and photo
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+            All scheduled events and calendar data
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+            Connections and contact list
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+            Messages and collaboration history
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+            Account credentials and login data
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Questions? Contact us at <a href="mailto:support@keyconnect.app">support@keyconnect.app</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    const emailInput = document.getElementById('email');
+    const confirmBox = document.getElementById('confirm');
+    const submitBtn = document.getElementById('submit-btn');
+
+    function validateForm() {
+      const emailValid = emailInput.value.includes('@') && emailInput.value.includes('.');
+      submitBtn.disabled = !(emailValid && confirmBox.checked);
+    }
+
+    emailInput.addEventListener('input', validateForm);
+    confirmBox.addEventListener('change', validateForm);
+
+    function handleSubmit() {
+      const cardBody = document.querySelector('.card-body');
+      const cardFooter = document.querySelector('.card-footer');
+      const successState = document.getElementById('success-state');
+      cardBody.style.display = 'none';
+      cardFooter.style.display = 'none';
+      successState.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
