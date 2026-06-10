@@ -32,68 +32,22 @@
       background: var(--bg);
     }
 
-    /* ── Nav matching index.html ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      padding: 16px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 100;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: #2C3E6B;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo span { color: #F5A623; }
-
-    nav a {
-      color: #1A1D2E;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      margin-left: 32px;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: #2C3E6B; }
-
-    .nav-cta {
-      background: #2C3E6B;
-      color: #fff !important;
-      padding: 10px 22px;
-      border-radius: 50px;
-      margin-left: 24px !important;
-    }
-
-    .nav-cta:hover { background: #F5A623 !important; color: #fff !important; }
-
-    /* ── Page title banner (replaces old header) ── */
-    .page-banner {
-      background: linear-gradient(135deg, #2C3E6B 0%, #1A1D2E 100%);
+    /* ── Top Header ── */
+    header {
+      background: var(--brand);
       color: #fff;
-      padding: 100px 24px 48px;
+      padding: 48px 24px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .page-banner::before {
+    header::before {
       content: '';
       position: absolute; inset: 0;
       background: radial-gradient(ellipse at 60% 40%, rgba(46,117,182,0.4) 0%, transparent 65%);
       pointer-events: none;
     }
-    .page-banner .badge {
+    header .badge {
       display: inline-block;
       font-size: 11px;
       font-weight: 600;
@@ -105,14 +59,14 @@
       padding: 4px 14px;
       margin-bottom: 16px;
     }
-    .page-banner h1 {
+    header h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 5vw, 3.2rem);
       letter-spacing: -0.5px;
       color: #fff;
       margin-bottom: 10px;
     }
-    .page-banner .subtitle {
+    header .subtitle {
       font-size: 15px;
       color: rgba(255,255,255,0.6);
       font-style: italic;
@@ -123,7 +77,7 @@
       background: var(--white);
       border-bottom: 2px solid var(--border);
       position: sticky;
-      top: 69px;
+      top: 0;
       z-index: 100;
       display: flex;
       justify-content: center;
@@ -295,48 +249,122 @@
 
     /* ── Footer ── */
     footer {
-      background: #1A1D2E;
-      padding: 48px 40px;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+    }
+
+    /* ── Fixed Nav ── */
+    body > nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 40px;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 200;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    }
+    body > nav .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #2C3E6B;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    body > nav .logo span { color: #F5A623; }
+    body > nav a {
+      color: #1A1D2E;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 32px;
+      transition: color 0.2s;
+    }
+    body > nav a:hover { color: #2C3E6B; }
+    .nav-cta {
+      background: #2C3E6B !important;
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+    }
+    .nav-cta:hover { background: #F5A623 !important; }
+
+    /* ── Page Banner ── */
+    .page-banner {
+      background: linear-gradient(135deg, #2C3E6B 0%, #1A1D2E 100%);
+      color: #fff;
+      padding: 110px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(46,117,182,0.4) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-banner .badge {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px; padding: 4px 14px;
+      margin-bottom: 16px; position: relative; z-index: 1;
+    }
+    .page-banner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #fff; margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .page-banner .subtitle {
+      font-size: 15px; color: rgba(255,255,255,0.6);
+      font-style: italic; position: relative; z-index: 1;
+    }
+
+    /* ── Tab nav clears fixed nav ── */
+    .tab-nav { top: 69px !important; z-index: 190 !important; }
+
+    /* ── Dark footer ── */
+    footer {
+      background: #1A1D2E !important;
+      padding: 48px 40px !important;
+      display: flex !important;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 20px;
-      margin-top: 16px;
+      border-top: none !important;
+      text-align: left !important;
     }
-
-    footer .logo { color: #fff; }
-
+    footer .logo { color: #fff !important; font-size: 22px; font-weight: 800; text-decoration: none; display: flex; align-items: center; }
+    footer .logo span { color: #F5A623; }
     .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-
-    .footer-links a {
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      font-size: 13px;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: #fff; }
-
-    footer p {
-      color: rgba(255,255,255,0.35);
-      font-size: 13px;
-      width: 100%;
-    }
+    .footer-links a { color: rgba(255,255,255,0.5) !important; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff !important; }
+    footer .footer-copy { color: rgba(255,255,255,0.35); font-size: 13px; width: 100%; margin-top: 8px; }
 
     @media (max-width: 640px) {
-      nav { padding: 14px 20px; }
-      nav a:not(.nav-cta) { display: none; }
-      footer { flex-direction: column; text-align: center; }
+      body > nav { padding: 14px 20px; }
+      body > nav a:not(.logo):not(.nav-cta) { display: none; }
+      footer { flex-direction: column !important; text-align: center !important; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════ HEADER ══════════════ -->
 <nav>
   <a href="https://keychainapplications.github.io/keyconnect-home/" class="logo">
-    <img src="icon-512x512.png" alt="KeyConnect logo" style="width:34px;height:34px;border-radius:8px;vertical-align:middle;margin-right:8px;">
+    <img src="https://keychainapplications.github.io/keyconnect-home/icon-512x512.png" alt="KeyConnect logo" style="width:34px;height:34px;border-radius:8px;margin-right:8px;">
     KeyConnect<span>+</span>
   </a>
   <div>
@@ -366,7 +394,7 @@
   ════════════════════════════════════ -->
   <div id="panel-privacy" class="tab-panel active">
 
-    <nav class="toc">
+    <div class="toc">
       <h2>Table of Contents — Privacy Policy</h2>
       <ol>
         <li><a href="#p1">About KeyConnect+ &amp; Our Users</a></li>
@@ -387,7 +415,7 @@
         <li><a href="#p16">Changes to This Policy</a></li>
         <li><a href="#p17">Contact Us</a></li>
       </ol>
-    </nav>
+    </div>
 
     <div class="callout">
       KeyConnect+ is a sports, events, and social networking app developed and operated by an individual developer. This Privacy Policy explains how your personal information is collected, used, shared, and protected through our website (<a href="https://www.keychainapps.net">www.keychainapps.net</a>), mobile applications, and related services (collectively, the "Services"). By using the Services, you agree to this Privacy Policy.
@@ -634,7 +662,7 @@
   ════════════════════════════════════ -->
   <div id="panel-tos" class="tab-panel">
 
-    <nav class="toc">
+    <div class="toc">
       <h2>Table of Contents — Terms of Service</h2>
       <ol>
         <li><a href="#t1">Registration &amp; Account</a></li>
@@ -660,7 +688,7 @@
         <li><a href="#t21">General Provisions</a></li>
         <li><a href="#t22">Contact Us</a></li>
       </ol>
-    </nav>
+    </div>
 
     <div class="warning-box">
       <strong>⚠ Important Notices — Please Read Before Continuing</strong>
@@ -943,7 +971,7 @@
 
 <footer>
   <a href="https://keychainapplications.github.io/keyconnect-home/" class="logo">
-    <img src="icon-512x512.png" alt="KeyConnect logo" style="width:28px;height:28px;border-radius:6px;vertical-align:middle;margin-right:7px;">
+    <img src="https://keychainapplications.github.io/keyconnect-home/icon-512x512.png" alt="KeyConnect logo" style="width:28px;height:28px;border-radius:6px;margin-right:7px;">
     KeyConnect<span>+</span>
   </a>
   <div class="footer-links">
@@ -952,7 +980,7 @@
     <a href="mailto:support@keyconnect.app">Support</a>
     <a href="https://keychainapplications.github.io/keyconnect-home/#features">Features</a>
   </div>
-  <p>© 2025 KeyConnect. All rights reserved.</p>
+  <p class="footer-copy">© 2025 KeyConnect. All rights reserved.</p>
 </footer>
 
 <script>
