@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tester Privacy Policy — KeyConnect+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #2C3E6B;
+      --accent: #F5A623;
+      --accent-blue: #2E75B6;
+      --accent-light: #EAF2FB;
+      --text: #1e2a38;
+      --muted: #5a6a7e;
+      --border: #d4e2ef;
+      --bg: #f7fafd;
+      --white: #ffffff;
+      --dark: #1A1D2E;
+      --warn-bg: #fff8e6;
+      --warn-border: #e6a817;
+      --success-bg: #edfbf3;
+      --success-border: #34c97a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* ── Fixed Nav ── */
+    body > nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 200;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    }
+    body > nav .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    body > nav .logo span { color: var(--accent); }
+    body > nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 32px;
+      transition: color 0.2s;
+    }
+    body > nav a:hover { color: var(--primary); }
+    .nav-cta {
+      background: var(--primary) !important;
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+    }
+    .nav-cta:hover { background: var(--accent) !important; }
+
+    /* ── Page Banner ── */
+    .page-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+      padding: 120px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(46,117,182,0.4) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-banner .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(245,166,35,0.4);
+      border-radius: 20px;
+      padding: 5px 16px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .page-banner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #fff;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .page-banner .subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+    .page-banner .meta {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .meta-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── Layout ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 0 0 40px;
+      overflow: hidden;
+    }
+    .toc h2 {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+      width: 100%;
+    }
+    .toc ol { padding-left: 20px; columns: 2; column-gap: 32px; }
+    @media (max-width: 600px) { .toc ol { columns: 1; } }
+    .toc li { margin-bottom: 6px; break-inside: avoid; }
+    .toc a { color: var(--accent-blue); text-decoration: none; font-size: 14px; font-weight: 600; }
+    .toc a:hover { color: var(--primary); text-decoration: underline; }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 48px;
+      padding-top: 8px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title .num {
+      background: var(--primary);
+      color: #fff;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 20px 0 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    li { margin-bottom: 6px; }
+
+    /* ── Callout boxes ── */
+    .callout {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 18px;
+      font-size: 14px;
+      color: var(--text);
+      margin: 16px 0;
+    }
+    .warn {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 18px;
+      font-size: 14px;
+      margin: 16px 0;
+    }
+    .success {
+      background: var(--success-bg);
+      border-left: 4px solid var(--success-border);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 18px;
+      font-size: 14px;
+      margin: 16px 0;
+    }
+
+    /* ── Data table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 16px 0;
+    }
+    .data-table th {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: #f0f5fb; }
+
+    /* ── Tag pills ── */
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .tag-yes { background: #dcfce7; color: #15803d; }
+    .tag-no { background: #fee2e2; color: #b91c1c; }
+    .tag-maybe { background: #fef9c3; color: #854d0e; }
+
+    /* ── Back to top ── */
+    .back-top {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+    .back-top:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      padding: 48px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    footer .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    footer .logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    footer .footer-copy { color: rgba(255,255,255,0.35); font-size: 13px; width: 100%; margin-top: 8px; }
+
+    @media (max-width: 640px) {
+      body > nav { padding: 14px 20px; }
+      body > nav a:not(.logo):not(.nav-cta) { display: none; }
+      footer { flex-direction: column; text-align: center; }
+      .page-banner { padding: 100px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://keychainapplications.github.io/keyconnect-home/" class="logo">
+    <img src="https://keychainapplications.github.io/keyconnect-home/icon-512x512.png" alt="KeyConnect logo" style="width:34px;height:34px;border-radius:8px;margin-right:8px;">
+    KeyConnect<span>+</span>
+  </a>
+  <div>
+    <a href="https://keychainapplications.github.io/keyconnect-home/#features">Features</a>
+    <a href="https://keychainapplications.github.io/keyconnect-home/#how">How it Works</a>
+    <a href="https://keychainapplications.github.io/keyconnect-home/delete-account.html">Delete Account</a>
+    <a href="https://keychainapplications.github.io/keyconnect-home/#download" class="nav-cta">Download</a>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<div class="page-banner">
+  <div class="eyebrow">🧪 Beta Testing Program</div>
+  <h1>Tester Privacy Policy</h1>
+  <p class="subtitle">KeyConnect+ Internal &amp; Beta Testing — Additional Privacy Terms</p>
+  <div class="meta">
+    <span class="meta-pill">📅 Effective: June 2026</span>
+    <span class="meta-pill">🔬 Internal &amp; Beta Testers</span>
+    <span class="meta-pill">📦 v1.0.0</span>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page-wrap">
+
+  <div class="warn">
+    <strong>⚠ This policy applies to testers only.</strong> If you are a regular user of KeyConnect+, please refer to our <a href="https://keychainapplications.github.io/keyconnect-home/privacy">main Privacy Policy</a>. This document supplements the main policy with additional terms specific to beta testing.
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#t1">Who Is a Tester?</a></li>
+      <li><a href="#t2">What Data We Collect</a></li>
+      <li><a href="#t3">How We Use Tester Data</a></li>
+      <li><a href="#t4">Crash Reports &amp; Diagnostics</a></li>
+      <li><a href="#t5">Feedback &amp; Bug Reports</a></li>
+      <li><a href="#t6">Data Sharing</a></li>
+      <li><a href="#t7">Data Retention</a></li>
+      <li><a href="#t8">Confidentiality</a></li>
+      <li><a href="#t9">Your Rights as a Tester</a></li>
+      <li><a href="#t10">Leaving the Program</a></li>
+      <li><a href="#t11">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <!-- S1 -->
+  <section id="t1">
+    <h2 class="section-title"><span class="num">1</span> Who Is a Tester?</h2>
+    <p>A "Tester" is any individual who has been invited to access a pre-release or beta version of KeyConnect+ through:</p>
+    <ul>
+      <li>Google Play Internal Testing track</li>
+      <li>Google Play Closed Testing (Alpha) track</li>
+      <li>Google Play Open Testing (Beta) track</li>
+      <li>Direct APK distribution by the developer</li>
+    </ul>
+    <p>By accepting an invitation and installing a test build of KeyConnect+, you agree to the terms of this Tester Privacy Policy in addition to the <a href="https://keychainapplications.github.io/keyconnect-home/privacy">main Privacy Policy</a>.</p>
+    <div class="callout">
+      You must be 13 years of age or older to participate in the KeyConnect+ testing program. By joining, you confirm you meet this requirement.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S2 -->
+  <section id="t2">
+    <h2 class="section-title"><span class="num">2</span> What Data We Collect from Testers</h2>
+    <p>In addition to data collected from regular users, we collect the following from testers:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Description</th>
+          <th>Collected?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Crash logs</td>
+          <td>Automatic crash reports including device model, OS version, app version, and stack trace</td>
+          <td><span class="tag tag-yes">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Performance metrics</td>
+          <td>App startup time, screen load times, memory usage</td>
+          <td><span class="tag tag-yes">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Feature usage logs</td>
+          <td>Which features are used, how often, and in what order</td>
+          <td><span class="tag tag-yes">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Device information</td>
+          <td>Device model, Android version, screen resolution, available storage</td>
+          <td><span class="tag tag-yes">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Feedback submissions</td>
+          <td>Any bug reports, feature requests, or comments you voluntarily submit</td>
+          <td><span class="tag tag-yes">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Network conditions</td>
+          <td>Connection type (WiFi/cellular) at time of error — no IP address stored</td>
+          <td><span class="tag tag-maybe">Limited</span></td>
+        </tr>
+        <tr>
+          <td>Screenshots</td>
+          <td>Only if you voluntarily attach them to a feedback submission</td>
+          <td><span class="tag tag-maybe">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Location data</td>
+          <td>Not collected beyond what regular users provide</td>
+          <td><span class="tag tag-no">No</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S3 -->
+  <section id="t3">
+    <h2 class="section-title"><span class="num">3</span> How We Use Tester Data</h2>
+    <p>Data collected from testers is used exclusively for the following purposes:</p>
+    <ul>
+      <li><strong>Bug identification</strong> — finding and fixing crashes, errors, and unexpected behavior</li>
+      <li><strong>Performance improvement</strong> — optimizing app speed, memory usage, and battery consumption</li>
+      <li><strong>Feature validation</strong> — understanding how testers interact with new features</li>
+      <li><strong>UX improvement</strong> — identifying confusing flows or friction points in the user experience</li>
+      <li><strong>Compatibility testing</strong> — ensuring the app works correctly across different Android devices and versions</li>
+    </ul>
+    <div class="success">
+      ✅ Tester data is <strong>never used for advertising, marketing, or sold to third parties.</strong>
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S4 -->
+  <section id="t4">
+    <h2 class="section-title"><span class="num">4</span> Crash Reports &amp; Diagnostics</h2>
+    <p>KeyConnect+ uses <strong>Firebase Crashlytics</strong> to automatically collect crash reports when the app encounters an unexpected error. This is enabled by default for test builds.</p>
+
+    <h3>What a crash report contains:</h3>
+    <ul>
+      <li>The line of code that caused the crash (stack trace)</li>
+      <li>App version and build number</li>
+      <li>Android OS version and device model</li>
+      <li>Time of crash</li>
+      <li>Whether the app was in the foreground or background</li>
+    </ul>
+
+    <h3>What a crash report does NOT contain:</h3>
+    <ul>
+      <li>Your name or email address</li>
+      <li>Your precise location</li>
+      <li>Any message content or personal data you entered</li>
+      <li>Photos or files from your device</li>
+    </ul>
+
+    <div class="callout">
+      Firebase Crashlytics is operated by Google. For more information on how Google handles this data, see the <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a>.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S5 -->
+  <section id="t5">
+    <h2 class="section-title"><span class="num">5</span> Feedback &amp; Bug Reports</h2>
+    <p>As a tester, you may be asked to submit feedback through:</p>
+    <ul>
+      <li>Google Play's in-app feedback form</li>
+      <li>Email to <a href="mailto:keychainapps@gmail.com">keychainapps@gmail.com</a></li>
+      <li>Any other feedback channel provided by the developer</li>
+    </ul>
+
+    <h3>When you submit feedback:</h3>
+    <ul>
+      <li>Your email address is collected so we can follow up</li>
+      <li>Any screenshots or recordings you attach are stored securely</li>
+      <li>Feedback content is only read by the developer and not shared publicly</li>
+      <li>Your feedback may be used to improve the app but will never be attributed to you publicly</li>
+    </ul>
+
+    <div class="warn">
+      <strong>⚠ Please do not include sensitive personal information</strong> (passwords, financial data, government IDs) in feedback submissions or bug reports.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S6 -->
+  <section id="t6">
+    <h2 class="section-title"><span class="num">6</span> Data Sharing</h2>
+    <p>Tester data may be shared only with the following trusted service providers, strictly for testing purposes:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Purpose</th>
+          <th>Data Shared</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Firebase Crashlytics (Google)</td>
+          <td>Crash reporting</td>
+          <td>Device info, crash logs</td>
+        </tr>
+        <tr>
+          <td>Firebase Analytics (Google)</td>
+          <td>Feature usage analytics</td>
+          <td>Anonymized usage events</td>
+        </tr>
+        <tr>
+          <td>Google Play Console</td>
+          <td>Test distribution &amp; feedback</td>
+          <td>Email (for testers only)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>We do <strong>not</strong> share tester data with advertisers, data brokers, or any other third parties.</p>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S7 -->
+  <section id="t7">
+    <h2 class="section-title"><span class="num">7</span> Data Retention</h2>
+    <p>Tester data is retained as follows:</p>
+    <ul>
+      <li><strong>Crash logs</strong> — retained for 90 days after the test build expires</li>
+      <li><strong>Performance metrics</strong> — retained for 90 days</li>
+      <li><strong>Feedback submissions</strong> — retained until the issue is resolved or for 1 year, whichever comes first</li>
+      <li><strong>Account data</strong> — retained for 30 days after you leave the testing program, then permanently deleted</li>
+    </ul>
+    <div class="callout">
+      When KeyConnect+ launches publicly, test accounts will not be automatically migrated. You will need to create a new account in the production app.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S8 -->
+  <section id="t8">
+    <h2 class="section-title"><span class="num">8</span> Confidentiality</h2>
+    <p>As a tester, you may have access to unreleased features, designs, and functionality that are not yet available to the public. By participating in the testing program, you agree to:</p>
+    <ul>
+      <li>Not share screenshots, recordings, or descriptions of unreleased features publicly</li>
+      <li>Not post about the test build on social media without prior written permission</li>
+      <li>Not share your test invitation link with others who were not invited</li>
+      <li>Keep any pre-release information confidential until the feature is publicly launched</li>
+    </ul>
+    <div class="warn">
+      <strong>⚠ Violation of confidentiality</strong> may result in removal from the testing program and revocation of your test access.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S9 -->
+  <section id="t9">
+    <h2 class="section-title"><span class="num">9</span> Your Rights as a Tester</h2>
+    <p>You have the following rights regarding your data as a tester:</p>
+
+    <h3>Access</h3>
+    <p>You can request a copy of the data we hold about you by emailing <a href="mailto:keychainapps@gmail.com">keychainapps@gmail.com</a>.</p>
+
+    <h3>Deletion</h3>
+    <p>You can request deletion of all your tester data at any time. We will process your request within 30 days. Use our <a href="https://keychainapplications.github.io/keyconnect-home/delete-account.html">account deletion page</a> or email us directly.</p>
+
+    <h3>Opt out of analytics</h3>
+    <p>You can opt out of analytics collection within the app under <strong>Settings → Privacy → Analytics</strong>. Note that crash reporting cannot be disabled in test builds as it is essential for identifying issues.</p>
+
+    <h3>Correction</h3>
+    <p>If any data we hold about you is incorrect, contact us and we will correct it promptly.</p>
+
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S10 -->
+  <section id="t10">
+    <h2 class="section-title"><span class="num">10</span> Leaving the Program</h2>
+    <p>You can leave the KeyConnect+ testing program at any time:</p>
+
+    <h3>Via Google Play:</h3>
+    <ol>
+      <li>Open Google Play Store on your Android device</li>
+      <li>Search for KeyConnect+</li>
+      <li>Scroll down to the "Join the beta" section</li>
+      <li>Tap <strong>Leave the programme</strong></li>
+      <li>Uninstall the test build</li>
+    </ol>
+
+    <h3>Via email:</h3>
+    <p>Email <a href="mailto:keychainapps@gmail.com">keychainapps@gmail.com</a> with subject line <strong>"Remove me from KeyConnect+ testing"</strong> and we will remove you within 24 hours.</p>
+
+    <div class="success">
+      ✅ Upon leaving, your tester account data will be deleted within <strong>30 days</strong>. Anonymized crash logs may be retained for up to 90 days as described in Section 7.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- S11 -->
+  <section id="t11">
+    <h2 class="section-title"><span class="num">11</span> Contact Us</h2>
+    <p>If you have any questions about this Tester Privacy Policy or the testing program, please reach out:</p>
+    <ul style="list-style:none; padding-left:0; line-height:2.2;">
+      <li>📧 <strong>Email:</strong> <a href="mailto:keychainapps@gmail.com">keychainapps@gmail.com</a></li>
+      <li>🌐 <strong>Website:</strong> <a href="https://keychainapplications.github.io/keyconnect-home/">keychainapplications.github.io/keyconnect-home</a></li>
+      <li>📍 <strong>Address:</strong> 18407 Moonlit Arbor Trl, Cypress, TX 77433</li>
+    </ul>
+    <p style="margin-top:20px; font-style:italic; color:var(--muted); font-size:14px;">This policy was last updated June 2026 and applies to all KeyConnect+ test builds distributed through Google Play or directly by the developer.</p>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://keychainapplications.github.io/keyconnect-home/" class="logo">
+    <img src="https://keychainapplications.github.io/keyconnect-home/icon-512x512.png" alt="KeyConnect logo" style="width:28px;height:28px;border-radius:6px;margin-right:7px;">
+    KeyConnect<span>+</span>
+  </a>
+  <div class="footer-links">
+    <a href="https://keychainapplications.github.io/keyconnect-home/privacy">Privacy Policy</a>
+    <a href="https://keychainapplications.github.io/keyconnect-home/tester-privacy.html">Tester Policy</a>
+    <a href="https://keychainapplications.github.io/keyconnect-home/delete-account.html">Delete Account</a>
+    <a href="mailto:support@keyconnect.app">Support</a>
+  </div>
+  <p class="footer-copy">© 2025 KeyConnect. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
