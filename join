@@ -1,4 +1,4 @@
-const APP_STORE_URL  = 'https://apps.apple.com/app/keyconnect/id973BH54SP2';
+const APP_STORE_URL  = 'https://apps.apple.com/app/keyconnect/id6776106885';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.keyconnect.keychainapps';
 
 
